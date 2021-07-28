@@ -9,9 +9,7 @@ jobs:
     - uses: actions/checkout@v2 # Adds a step to checkout the repository code
     
     - name: Build the C# code
-      run: |
-        dotnet nuget add source https://api.nuget.org/v3/index.json -n nuget.org
-        dotnet build 
+      run: dotnet build 
     
     - name: Builds the Typescript code
       working-directory: ./DotnetTemplate.Web
