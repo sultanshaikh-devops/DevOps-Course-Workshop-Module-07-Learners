@@ -8,10 +8,19 @@ jobs:
     steps:
     - uses: actions/checkout@v2 # Adds a step to checkout the repository code
     
-    - name: Hello World       #name of step
-      run: echo 'Hello World' #command to run
+    - name: Build the C# code
+      run: dotnet build 
+    
+    - name: Builds the Typescript code
+      working-directory: ./DotnetTemplate.Web
+      run: npm run build
 
-    - name: Hello world
-      uses: actions/hello-world-javascript-action@v1.1 # Name of the action. This uses https://github.com/actions/hello-world-javascript-action
-      with:                                            # This section is needed if you need to pass arguments to the action
-        who-to-greet: 'Mona the Octocat'
+    - name: Run the C# tests
+      working-directory: ./DotnetTemplate.Web.Tests
+      run: dotnet test
+
+    - name: Runs the typeScript tests and he TypeScript code
+      working-directory: ./DotnetTemplate.Web
+      run: |
+        npm t
+        npm run lint
