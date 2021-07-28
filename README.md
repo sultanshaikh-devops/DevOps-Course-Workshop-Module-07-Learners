@@ -1,4 +1,5 @@
 # Workshop Module 07
+![main Actions Status](https://github.com/sultanshaikh-devops/DevOps-Course-Workshop-Module-07-Learners/actions/workflows/continuous-integration-workflow.yml/badge.svg)
 
 This repository is for learners on Corndel's DevOps apprenticeship.
 
